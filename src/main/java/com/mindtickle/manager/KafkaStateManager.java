@@ -51,16 +51,18 @@ public class KafkaStateManager {
         int index = 1;
         Set<NewTopic> topicsToBeCreated = new HashSet<>();
         while(index<=topics) {
-            topicsToBeCreated.clear();
-            NewTopic newTopic = new NewTopic(ConfigManager.getInstance().getTopicPrefix()+ index, partitions, Short.valueOf("1"));
+            // topicsToBeCreated.clear();
+            NewTopic newTopic = new NewTopic(ConfigManager.getInstance().getTopicPrefix()+ index, partitions, Short.valueOf("2"));
             topicsToBeCreated.add(newTopic);
+            /*
             System.out.println(System.currentTimeMillis() + "Topics to be created::" + topicsToBeCreated);
             kafkaAdminClient.createTopics(topicsToBeCreated).all().get();
             System.out.println(System.currentTimeMillis() + "Topic creation complete");
+            */
             index++;
         }
         System.out.println(System.currentTimeMillis() + "Topics to be created::" + topicsToBeCreated);
-        // kafkaAdminClient.createTopics(topicsToBeCreated).all().get();
+        kafkaAdminClient.createTopics(topicsToBeCreated).all().get();
         System.out.println(System.currentTimeMillis() + "Topic creation complete");
     }
 

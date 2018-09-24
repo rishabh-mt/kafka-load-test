@@ -34,7 +34,7 @@ public class App {
         ConfigManager.getInstance();
         System.out.println("Starting now:" + System.currentTimeMillis());
         KafkaStateManager ksm = new KafkaStateManager();
-        int topics = 20;
+        int topics = 10;
         int partitions = 1500;
         int numThreads = 10;
         try {
